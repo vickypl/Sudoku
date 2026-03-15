@@ -1,0 +1,133 @@
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --line: #94a3b8;
+  --accent: #2563eb;
+  --peer: #dbeafe;
+  --same: #fef3c7;
+  --selected: #93c5fd;
+  --error: #fecaca;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.app {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 { margin-top: 8px; }
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.board-column {
+  display: flex;
+  justify-content: center;
+}
+
+.controls-column {
+  display: grid;
+  gap: 12px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.toolbar,
+.statusbar,
+.actions {
+  display: grid;
+  gap: 10px;
+}
+
+button, select {
+  border: 1px solid #cbd5e1;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border: 2px solid #0f172a;
+  max-width: 540px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  background: white;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cell:nth-child(3n) { border-right: 2px solid #1e3a8a; }
+.cell:nth-child(9n) { border-right: 1px solid var(--line); }
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) { border-bottom: 2px solid #1e3a8a; }
+
+.cell.given { color: #0f172a; font-weight: 800; }
+.cell.selected { background: var(--selected); }
+.cell.peer { background: var(--peer); }
+.cell.same { background: var(--same); }
+.cell.error { background: var(--error); }
+
+.digits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .board-column {
+    justify-content: flex-start;
+  }
+
+  .controls-column {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cell {
+    width: 11vw;
+    height: 11vw;
+    max-width: 48px;
+    max-height: 48px;
+    font-size: 20px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

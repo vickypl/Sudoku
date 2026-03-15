@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudoku (Vanilla JS)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>◈ Sudoku</h1>
+
+      <section class="game-layout">
+        <section class="board-column">
+          <section id="board" class="board" aria-label="Sudoku board"></section>
+        </section>
+
+        <aside class="controls-column">
+          <section class="toolbar panel">
+            <label>
+              Difficulty
+              <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+              </select>
+            </label>
+            <button id="newGame">New Game</button>
+            <button id="notesToggle">Notes: Off</button>
+          </section>
+
+          <section class="statusbar panel">
+            <span id="timer">00:00</span>
+            <span id="message">Pick a cell and start playing.</span>
+          </section>
+
+          <section class="digits panel" id="digits"></section>
+
+          <section class="actions panel">
+            <button id="erase">Erase</button>
+            <button id="hint">Hint</button>
+            <button id="check">Check</button>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
