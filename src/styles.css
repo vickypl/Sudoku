@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --fg: 15 23 42;
+  --peer-highlight: 219 234 254;
+  --selected-highlight: 147 197 253;
+  --same-digit-highlight: 253 230 138;
+}
+
+[data-theme='dark'] {
+  --bg: 2 6 23;
+  --fg: 226 232 240;
+  --peer-highlight: 30 41 59;
+  --selected-highlight: 14 116 144;
+  --same-digit-highlight: 120 53 15;
+}
+
+[data-theme='high-contrast'] {
+  --bg: 0 0 0;
+  --fg: 255 255 255;
+  --peer-highlight: 55 65 81;
+  --selected-highlight: 37 99 235;
+  --same-digit-highlight: 245 158 11;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
