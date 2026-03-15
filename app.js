@@ -12,6 +12,7 @@ const messageEl = document.getElementById('message');
 const timerEl = document.getElementById('timer');
 const difficultyEl = document.getElementById('difficulty');
 const notesBtn = document.getElementById('notesToggle');
+const themeSelectEl = document.getElementById('themeSelect');
 
 let selected = null;
 let noteMode = false;
@@ -19,6 +20,20 @@ let puzzle = null;
 let state = null;
 let timer = null;
 let elapsed = 0;
+
+
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  localStorage.setItem('sudoku-theme', theme);
+}
+
+const initialTheme = localStorage.getItem('sudoku-theme') || 'ocean';
+if (themeSelectEl) {
+  themeSelectEl.value = initialTheme;
+  themeSelectEl.addEventListener('change', (e) => applyTheme(e.target.value));
+}
+applyTheme(initialTheme);
+
 
 const rowOf = (i) => Math.floor(i / 9);
 const colOf = (i) => i % 9;
@@ -214,6 +229,7 @@ function render() {
   digitsEl.innerHTML = '';
   DIGITS.forEach((digit) => {
     const btn = document.createElement('button');
+    btn.className = 'digit-btn';
     btn.type = 'button';
     btn.textContent = digit;
     btn.addEventListener('click', () => handleDigit(digit));

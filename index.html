@@ -10,33 +10,54 @@
     <main class="app">
       <h1>◈ Sudoku</h1>
 
-      <section class="toolbar">
-        <label>
-          Difficulty
-          <select id="difficulty">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-            <option value="expert">Expert</option>
-          </select>
-        </label>
-        <button id="newGame">New Game</button>
-        <button id="notesToggle">Notes: Off</button>
-      </section>
+      <section class="game-layout">
+        <section class="board-column">
+          <section id="board" class="board" aria-label="Sudoku board"></section>
+        </section>
 
-      <section class="statusbar">
-        <span id="timer">00:00</span>
-        <span id="message">Pick a cell and start playing.</span>
-      </section>
+        <aside class="controls-column">
+          <section class="toolbar panel">
+            <label>
+              Difficulty
+              <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+              </select>
+            </label>
+            <button id="newGame" class="btn btn-primary">New Game</button>
+            <button id="notesToggle" class="btn btn-secondary">Notes: Off</button>
+            <label>
+              Theme
+              <select id="themeSelect">
+                <option value="ocean">Ocean</option>
+                <option value="midnight">Midnight</option>
+                <option value="forest">Forest</option>
+                <option value="sunset">Sunset</option>
+                <option value="royal">Royal</option>
+                <option value="rose">Rose</option>
+                <option value="mint">Mint</option>
+                <option value="graphite">Graphite</option>
+                <option value="gold">Gold</option>
+                <option value="lavender">Lavender</option>
+              </select>
+            </label>
+          </section>
 
-      <section id="board" class="board" aria-label="Sudoku board"></section>
+          <section class="statusbar panel">
+            <span id="timer">00:00</span>
+            <span id="message">Pick a cell and start playing.</span>
+          </section>
 
-      <section class="digits" id="digits"></section>
+          <section class="digits panel" id="digits"></section>
 
-      <section class="actions">
-        <button id="erase">Erase</button>
-        <button id="hint">Hint</button>
-        <button id="check">Check</button>
+          <section class="actions panel">
+            <button id="erase" class="btn btn-secondary">Erase</button>
+            <button id="hint" class="btn btn-primary">Hint</button>
+            <button id="check" class="btn btn-accent">Check</button>
+          </section>
+        </aside>
       </section>
     </main>
 
