@@ -39,27 +39,47 @@ export const peersOf = (index: number): number[] => {
 const isValidPlacement = (board: CellValue[], index: number, digit: Digit): boolean =>
   peersOf(index).every((peerIndex) => board[peerIndex] !== digit);
 
-const solve = (board: CellValue[], countOnly = false): number => {
+const fillBoard = (board: CellValue[]): boolean => {
+  const empty = board.findIndex((value) => value === null);
+  if (empty === -1) return true;
+
+  for (const digit of shuffle(DIGITS)) {
+    if (!isValidPlacement(board, empty, digit)) continue;
+    board[empty] = digit;
+    if (fillBoard(board)) {
+      return true;
+    }
+    board[empty] = null;
+  }
+
+  return false;
+};
+
+const countSolutions = (board: CellValue[], maxSolutions: number): number => {
   const empty = board.findIndex((value) => value === null);
   if (empty === -1) return 1;
 
   let solutions = 0;
-  for (const digit of shuffle(DIGITS)) {
+  for (const digit of DIGITS) {
     if (!isValidPlacement(board, empty, digit)) continue;
     board[empty] = digit;
-    solutions += solve(board, countOnly);
-    if (countOnly && solutions > 1) {
-      board[empty] = null;
+    solutions += countSolutions(board, maxSolutions);
+    board[empty] = null;
+
+    if (solutions >= maxSolutions) {
       return solutions;
     }
-    board[empty] = null;
   }
+
   return solutions;
 };
 
 const generateSolvedBoard = (): Digit[] => {
   const board: CellValue[] = Array(81).fill(null);
-  solve(board);
+  const generated = fillBoard(board);
+  if (!generated) {
+    throw new Error('Failed to generate solved Sudoku board');
+  }
   return board as Digit[];
 };
 
@@ -75,7 +95,7 @@ export const generatePuzzle = async (difficulty: Difficulty): Promise<Puzzle> =>
     if (givens.filter(Boolean).length <= targetClues) break;
     const cached = givens[index];
     givens[index] = null;
-    if (solve([...givens], true) !== 1) {
+    if (countSolutions([...givens], 2) !== 1) {
       givens[index] = cached;
     }
   }
