@@ -26,8 +26,23 @@
                 <option value="expert">Expert</option>
               </select>
             </label>
-            <button id="newGame">New Game</button>
-            <button id="notesToggle">Notes: Off</button>
+            <button id="newGame" class="btn btn-primary">New Game</button>
+            <button id="notesToggle" class="btn btn-secondary">Notes: Off</button>
+            <label>
+              Theme
+              <select id="themeSelect">
+                <option value="ocean">Ocean</option>
+                <option value="midnight">Midnight</option>
+                <option value="forest">Forest</option>
+                <option value="sunset">Sunset</option>
+                <option value="royal">Royal</option>
+                <option value="rose">Rose</option>
+                <option value="mint">Mint</option>
+                <option value="graphite">Graphite</option>
+                <option value="gold">Gold</option>
+                <option value="lavender">Lavender</option>
+              </select>
+            </label>
           </section>
 
           <section class="statusbar panel">
@@ -38,9 +53,9 @@
           <section class="digits panel" id="digits"></section>
 
           <section class="actions panel">
-            <button id="erase">Erase</button>
-            <button id="hint">Hint</button>
-            <button id="check">Check</button>
+            <button id="erase" class="btn btn-secondary">Erase</button>
+            <button id="hint" class="btn btn-primary">Hint</button>
+            <button id="check" class="btn btn-accent">Check</button>
           </section>
         </aside>
       </section>
