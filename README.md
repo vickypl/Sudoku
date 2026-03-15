@@ -1,133 +1,32 @@
-# ◈ Sudoku Online
+# ◈ Sudoku (HTML + CSS + JavaScript)
 
-A Sudoku game you can run on your own computer.
+No Node.js required.
 
-This guide is written for beginners (non-technical users).
+## Run (super simple)
 
----
+### Option 1: double-click
+1. Download this project as ZIP and extract it.
+2. Open the folder.
+3. Double-click `index.html`.
+4. The game opens in your browser.
 
-## What you need first
-
-Before starting, install these 2 free tools:
-
-1. **Node.js (LTS version)**
-   - Download: https://nodejs.org/
-   - Install it with default options.
-
-2. **Git**
-   - Download: https://git-scm.com/downloads
-   - Install with default options.
-
-After installing, **restart your computer once** (recommended).
-
----
-
-## Step-by-step: run the app (simple way)
-
-### Step 1) Download this project
-
-Open terminal (or Command Prompt) and run:
+### Option 2: tiny local server (recommended)
+If your browser blocks local scripts, run a simple server:
 
 ```bash
-git clone https://github.com/<your-username>/Sudoku.git
+python3 -m http.server 8080
 ```
 
-Then go into the project folder:
+Then open:
 
-```bash
-cd Sudoku
+```text
+http://localhost:8080
 ```
 
-> If you already have the folder, just open terminal inside `Sudoku`.
-
-### Step 2) Install app dependencies
-
-Run:
-
-```bash
-npm install
-```
-
-Wait until it finishes. (Can take 1-5 minutes first time.)
-
-### Step 3) Start the app
-
-Run:
-
-```bash
-npm run dev
-```
-
-You will see a local address in terminal, usually:
-
-- `http://localhost:5173/`
-
-### Step 4) Open in browser
-
-Copy that local address and open it in Chrome/Edge/Firefox.
-
-Now the Sudoku app is running 🎉
-
----
-
-## How to stop the app
-
-In terminal, press:
-
-- **Ctrl + C**
-
-This safely stops the local server.
-
----
-
-## Next time you want to run it
-
-You only need these commands:
-
-```bash
-cd Sudoku
-npm run dev
-```
-
-(Use `npm install` again only if dependencies were removed.)
-
----
-
-## Optional: run tests
-
-If you want to check that everything works technically:
-
-```bash
-npm test
-```
-
----
-
-## Common problems and easy fixes
-
-### "npm is not recognized"
-
-Node.js is not installed correctly. Reinstall Node.js from nodejs.org and restart computer.
-
-### Port 5173 already in use
-
-Close other running dev servers, then run `npm run dev` again.
-
-### "Cannot find module" or install errors
-
-Try:
-
-```bash
-npm cache clean --force
-npm install
-```
-
----
-
-## Build for production (optional)
-
-```bash
-npm run build
-```
-
-Build files will be generated for deployment.
+## Controls
+- Click a cell, then click 1-9 to place number.
+- Keyboard: press `1-9` to place.
+- `Backspace/Delete` to erase selected cell.
+- `Notes` button toggles note mode.
+- `Hint` fills selected cell with correct value.
+- `Check` highlights conflicts.

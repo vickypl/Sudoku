@@ -3,10 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sudoku Online</title>
+    <title>Sudoku (Vanilla JS)</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <main class="app">
+      <h1>◈ Sudoku</h1>
+
+      <section class="toolbar">
+        <label>
+          Difficulty
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
+          </select>
+        </label>
+        <button id="newGame">New Game</button>
+        <button id="notesToggle">Notes: Off</button>
+      </section>
+
+      <section class="statusbar">
+        <span id="timer">00:00</span>
+        <span id="message">Pick a cell and start playing.</span>
+      </section>
+
+      <section id="board" class="board" aria-label="Sudoku board"></section>
+
+      <section class="digits" id="digits"></section>
+
+      <section class="actions">
+        <button id="erase">Erase</button>
+        <button id="hint">Hint</button>
+        <button id="check">Check</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
   </body>
 </html>
